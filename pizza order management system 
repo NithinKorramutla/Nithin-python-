@@ -1,0 +1,29 @@
+import pandas as pd
+
+# Sample Pizza Menu stored in a DataFrame
+menu_data = {
+    "Pizza ID": [1, 2, 3, 4],
+    "Pizza Name": ["Margherita", "Pepperoni", "Veggie Deluxe", "BBQ Chicken"],
+    "Base Price": [8.00, 10.00, 12.00, 15.00]
+}
+menu = pd.DataFrame(menu_data)
+
+# Add-on prices
+add_ons = {
+    "Extra Cheese": 2.00,
+    "Extra Toppings": 3.00,
+    "Takeaway": 1.50
+}
+
+# Function to display the menu
+def display_menu():
+    print("\nPizza Menu:")
+    print(menu.to_string(index=False))
+
+# Function to calculate the total price
+def calculate_total(base_price, extras):
+    total = base_price + sum(add_ons[extra] for extra in extras)
+    return total
+
+# Function to place an order
+def place_order(order_summary):
